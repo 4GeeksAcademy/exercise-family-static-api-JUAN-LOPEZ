@@ -15,13 +15,13 @@ class FamilyStructure:
         # example list of members
         self._members = [{
             "id":3443, 
-            "first_name":"Jimmy",
+            "first_name":"Tommy",
             "last_name": last_name,
             "age":33,
             "lucky_number":[7,13,22]
         },
         {
-            "id":3434,
+            "id":3443,
             "first_name":"Jane",
             "last_name": last_name,
             "age": 35,
@@ -29,7 +29,7 @@ class FamilyStructure:
         },
         {
             "id":self._generateId(),
-            "first_name": "John",
+            "first_name": "Jimmy",
             "last_name":last_name,
             "age": 5,
             "lucky_number": 1
@@ -57,9 +57,9 @@ class FamilyStructure:
         
         return {"done": True}
     
-    # def update_member(self, id, member):
-    #     self._members=[update_member if member["id"]==id else member for member in self._members ]
-    #     return self._members
+    def update_member(self, id, member):
+        self._members=[update_member if member["id"]==id else member for member in self._members ]
+        return self._members
 
     def get_member(self, id):
         # fill this method and update the return

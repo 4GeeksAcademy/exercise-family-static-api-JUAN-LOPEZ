@@ -32,25 +32,25 @@ def handle_hello():
     members = jackson_family.get_all_members()
     return jsonify(members), 200
 
-@app.route('/member/<int:id>', methods=['GET'])
+@app.route("/member/<int:id>",methods=['GET'])
 def get_member(id):
     try:
         member_needed=jackson_family.get_member(id)
         if member_needed:
             return member_needed,200
         else:
-            return 'error', "the member doesn't exist", 404
+            return "error","the member does not exist",404
     except:
-        return "there was an error in the server", 500
+        return "there was an error in the server",500
     
 
-@app.route('/member', methods=['POST'])
+@app.route('/member',methods=['POST'])
 def post_new_member():
     try:
-        first_name=request.json.get('fisrt_name')
+        first_name=request.json.get('first_name')
         age=request.json.get('age')
         lucky_numbers= request.json.get('lucky_numbers')
-        id=request.json.getr('id')
+        id=request.json.get('id')
         new_member={
             "first_name":first_name,
             "age":age,
@@ -73,7 +73,7 @@ def delete_member(id):
         else:
             return jsonify({"done":True}), 200
     except Exception as error:
-        return jsonify({"error": 'We have an error'}), 500
+        return jsonify({"error": str(error)}), 500
 
 
 # this only runs if `$ python src/app.py` is executed
