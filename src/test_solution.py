@@ -80,7 +80,7 @@ def test_get_single_member_has_keys(client):
     assert "first_name" in data
     assert "id" in data
     assert "age" in data
-    # assert "lucky_numbers" in data
+    assert "lucky_numbers" in data
 
 @pytest.mark.it("Method GET /member/3443 should return Tommy")
 def test_get_first_member_tommy(client):
